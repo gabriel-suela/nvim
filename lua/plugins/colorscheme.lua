@@ -9,4 +9,9 @@ return {
       }
     end,
   },
+  {
+    "liuchengxu/space-vim-dark",
+    lazy = true,
+    priority = 1000,
+  },
 }
