@@ -23,6 +23,8 @@ keymap.set("n", "<C-a>", "gg<S-v>G")
 keymap.set("n", "<Leader>o", "o<Esc>^Da", opts)
 keymap.set("n", "<Leader>O", "O<Esc>^Da", opts)
 
+keymap.del({ "i", "x", "n", "s" }, "<C-s>")
+
 -- Jumplist
 keymap.set("n", "<C-m>", "<C-i>", opts)
 
@@ -46,6 +48,6 @@ keymap.set("n", "<C-w><up>", "<C-w>+")
 keymap.set("n", "<C-w><down>", "<C-w>-")
 
 -- Diagnostics
-keymap.set("n", "<C-j>", function()
-  vim.diagnostic.goto_next()
-end, opts)
+-- keymap.set("n", "<C-j>", function()
+--   vim.diagnostic.goto_next()
+-- end, opts)
