@@ -23,8 +23,6 @@ keymap.set("n", "<C-a>", "gg<S-v>G")
 keymap.set("n", "<Leader>o", "o<Esc>^Da", opts)
 keymap.set("n", "<Leader>O", "O<Esc>^Da", opts)
 
-keymap.del({ "i", "x", "n", "s" }, "<C-s>")
-
 -- Jumplist
 keymap.set("n", "<C-m>", "<C-i>", opts)
 
