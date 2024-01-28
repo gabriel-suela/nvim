@@ -34,7 +34,11 @@ return {
       })
     end,
   },
-  { "LunarVim/darkplus.nvim", lazy = false, priority = 1000 },
+  {
+    "LunarVim/darkplus.nvim",
+    lazy = false,
+    priority = 1000,
+  },
 
   {
     "sainnhe/gruvbox-material",
