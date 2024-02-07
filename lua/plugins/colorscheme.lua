@@ -6,8 +6,17 @@ return {
     opts = function()
       return {
         transparent = true,
+        style = "night",
       }
     end,
+  },
+  {
+    "folke/tokyonight.nvim",
+    lazy = false,
+    priority = 1000,
+    opts = {
+      transparent = true,
+    },
   },
   {
     "catppuccin/nvim",
@@ -20,13 +29,22 @@ return {
     end,
   },
   {
+    "rose-pine/neovim",
+    name = "rosepine",
+    priority = 1000,
+    opts = function()
+      return { styles = {
+        transparency = true,
+      } }
+    end,
+  },
+  {
     "neanias/everforest-nvim",
     version = false,
     lazy = false,
-    priority = 1000, -- make sure to load this before all the other start plugins
-    -- Optional; default configuration will be used if setup isn't called.
+    priority = 1000,
     config = function()
-      require("everforest").setup({ -- Your config here
+      require("everforest").setup({
         background = "hard",
         colours_override = function(palette)
           palette.bg0 = "#1e2326"
@@ -46,18 +64,14 @@ return {
     event = "VeryLazy",
     config = function()
       vim.g.gruvbox_material_better_performance = 1
-      -- Fonts
       vim.g.gruvbox_material_disable_italic_comment = 1
       vim.g.gruvbox_material_enable_italic = 0
       vim.g.gruvbox_material_enable_bold = 0
       vim.g.gruvbox_material_transparent_background = 1
-      -- Themes
       vim.g.gruvbox_material_foreground = "mix"
       vim.g.gruvbox_material_background = "hard"
-      vim.g.gruvbox_material_ui_contrast = "high" -- The contrast of line numbers, indent lines, etc.
-      vim.g.gruvbox_material_float_style = "dim" -- Background of floating windows
-
-      -- vim.cmd('colorscheme gruvbox-material')
+      vim.g.gruvbox_material_ui_contrast = "high"
+      vim.g.gruvbox_material_float_style = "dim"
     end,
   },
 }
