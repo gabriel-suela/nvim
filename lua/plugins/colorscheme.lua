@@ -6,7 +6,6 @@ return {
     opts = function()
       return {
         transparent = true,
-        style = "night",
       }
     end,
   },
@@ -16,6 +15,7 @@ return {
     priority = 1000,
     opts = {
       transparent = true,
+      style = "night",
     },
   },
   {
@@ -34,7 +34,7 @@ return {
     priority = 1000,
     opts = function()
       return { styles = {
-        transparency = true,
+        transparency = false,
       } }
     end,
   },
@@ -57,7 +57,6 @@ return {
     lazy = false,
     priority = 1000,
   },
-
   {
     "sainnhe/gruvbox-material",
     name = "gruvbox-material",
