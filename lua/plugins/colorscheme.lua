@@ -5,10 +5,11 @@ return {
     priority = 1000,
     opts = function()
       return {
-        transparent = true,
+        transparent = false,
       }
     end,
   },
+  { "datsfilipe/min-theme.nvim", lazy = true },
   {
     "folke/tokyonight.nvim",
     lazy = false,
