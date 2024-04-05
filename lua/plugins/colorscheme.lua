@@ -5,7 +5,7 @@ return {
     priority = 1000,
     opts = function()
       return {
-        transparent = false,
+        transparent = true,
       }
     end,
   },
@@ -34,9 +34,11 @@ return {
     name = "rosepine",
     priority = 1000,
     opts = function()
-      return { styles = {
-        transparency = false,
-      } }
+      return {
+        styles = {
+          transparency = false,
+        }
+      }
     end,
   },
   {
