@@ -6,6 +6,10 @@ return {
     opts = function()
       return {
         transparent = true,
+        styles = {
+          floats = "transparent",
+          sidebars = "transparent",
+        },
       }
     end,
   },
@@ -37,7 +41,7 @@ return {
       return {
         styles = {
           transparency = false,
-        }
+        },
       }
     end,
   },
