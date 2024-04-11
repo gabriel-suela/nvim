@@ -20,6 +20,8 @@ keymap.set("n", "<Leader>ma", ":lua require('harpoon.mark').add_file()<CR>")
 keymap.set("n", "<Leader>mn", ":lua require('harpoon.ui').nav_next()<CR>")
 keymap.set("n", "<Leader>mp", ":lua require('harpoon.ui').nav_prev()<CR>")
 
+keymap.set("n", "<Leader>d", [[:OpenDiagnostics<CR>]], opts)
+
 -- Save with root permission (not working for now)
 --vim.api.nvim_create_user_command('W', 'w !sudo tee > /dev/null %', {})
 

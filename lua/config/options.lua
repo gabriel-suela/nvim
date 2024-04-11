@@ -19,26 +19,24 @@ vim.opt.scrolloff = 10
 vim.opt.shell = "zsh"
 vim.opt.backupskip = { "/tmp/*", "/private/tmp/*" }
 vim.opt.inccommand = "split"
-vim.opt.ignorecase = true -- Case insensitive searching UNLESS /C or capital in search
+vim.opt.ignorecase = true
 vim.opt.smarttab = true
 vim.opt.breakindent = true
 vim.opt.shiftwidth = 2
 vim.opt.tabstop = 2
 vim.opt.wrap = true
 vim.opt.backspace = { "start", "eol", "indent" }
-vim.opt.path:append({ "**" }) -- Finding files - Search down into subfolders
+vim.opt.path:append({ "**" })
 vim.opt.wildignore:append({ "*/node_modules/*" })
-vim.opt.splitbelow = true -- Put new windows below current
-vim.opt.splitright = true -- Put new windows right of current
+vim.opt.splitbelow = true
+vim.opt.splitright = true
 vim.opt.splitkeep = "cursor"
 vim.opt.mouse = "a"
+vim.opt.formatoptions:append({ "r" })
 
 -- Undercurl
 vim.cmd([[let &t_Cs = "\e[4:3m"]])
 vim.cmd([[let &t_Ce = "\e[4:0m"]])
-
--- Add asterisks in block comments
-vim.opt.formatoptions:append({ "r" })
 
 vim.diagnostic.config({
   virtual_text = false,
@@ -62,12 +60,6 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagn
   virtual_text = false,
 })
 
-vim.api.nvim_set_keymap("n", "<Leader>d", [[:OpenDiagnostics<CR>]], { noremap = true, silent = true })
-
 vim.cmd([[au BufNewFile,BufRead *.astro setf astro]])
 vim.cmd([[au BufNewFile,BufRead *.yaml.gotmpl setf yaml]])
 vim.cmd([[au BufNewFile,BufRead Podfile setf ruby]])
-
-if vim.fn.has("nvim-0.8") == 1 then
-  vim.opt.cmdheight = 0
-end
