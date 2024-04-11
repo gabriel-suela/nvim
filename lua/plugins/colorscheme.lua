@@ -13,16 +13,6 @@ return {
       }
     end,
   },
-  { "datsfilipe/min-theme.nvim", lazy = true },
-  {
-    "folke/tokyonight.nvim",
-    lazy = false,
-    priority = 1000,
-    opts = {
-      transparent = true,
-      style = "night",
-    },
-  },
   {
     "catppuccin/nvim",
     name = "catppuccin",
@@ -30,18 +20,6 @@ return {
     opts = function()
       return {
         transparent_background = true,
-      }
-    end,
-  },
-  {
-    "rose-pine/neovim",
-    name = "rosepine",
-    priority = 1000,
-    opts = function()
-      return {
-        styles = {
-          transparency = false,
-        },
       }
     end,
   },
