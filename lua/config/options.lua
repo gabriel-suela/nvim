@@ -33,6 +33,7 @@ vim.opt.splitright = true
 vim.opt.splitkeep = "cursor"
 vim.opt.mouse = "a"
 vim.opt.formatoptions:append({ "r" })
+vim.opt.laststatus = 0
 
 -- Undercurl
 vim.cmd([[let &t_Cs = "\e[4:3m"]])
