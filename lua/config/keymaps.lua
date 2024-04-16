@@ -22,6 +22,9 @@ keymap.set("n", "<Leader>mp", ":lua require('harpoon.ui').nav_prev()<CR>")
 
 keymap.set("n", "<Leader>d", [[:OpenDiagnostics<CR>]], opts)
 
+vim.keymap.set("n", "<Leader>k", "<cmd>cnext<CR>zz")
+vim.keymap.set("n", "<Leader>j", "<cmd>cprev<CR>zz")
+
 -- Save with root permission (not working for now)
 --vim.api.nvim_create_user_command('W', 'w !sudo tee > /dev/null %', {})
 

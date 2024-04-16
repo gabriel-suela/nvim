@@ -35,6 +35,19 @@ vim.opt.mouse = "a"
 vim.opt.formatoptions:append({ "r" })
 vim.opt.laststatus = 0
 
+vim.opt.clipboard = "unnamedplus"
+
+if vim.fn.has("wsl") == 1 then
+  vim.api.nvim_create_autocmd("TextYankPost", {
+
+    group = vim.api.nvim_create_augroup("Yank", { clear = true }),
+
+    callback = function()
+      vim.fn.system("clip.exe", vim.fn.getreg('"'))
+    end,
+  })
+end
+
 -- Undercurl
 vim.cmd([[let &t_Cs = "\e[4:3m"]])
 vim.cmd([[let &t_Ce = "\e[4:0m"]])
