@@ -52,12 +52,8 @@ end
 vim.cmd([[let &t_Cs = "\e[4:3m"]])
 vim.cmd([[let &t_Ce = "\e[4:0m"]])
 
-vim.cmd([[
-  command! OpenDiagnostics lua vim.diagnostic.open_float(nil, {focus=false})
-]])
-
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
-  virtual_text = false,
+  virtual_text = true,
 })
 
 vim.cmd([[au BufNewFile,BufRead *.astro setf astro]])

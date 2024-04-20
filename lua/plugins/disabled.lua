@@ -1,6 +1,6 @@
 return {
   -- disable trouble
-  -- { "kinsho/bufferline.nvim", enabled = false },
+  { "kinsho/bufferline.nvim", enabled = false },
   { "folke/which-key.nvim", enabled = false },
   { "rcarriga/nvim-notify", enabled = false },
   { "folke/noice.nvim", enabled = false },

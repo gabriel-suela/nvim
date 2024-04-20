@@ -14,6 +14,21 @@ return {
     end,
   },
   {
+    "rose-pine/neovim",
+    name = "rose-pine",
+    priority = 1000,
+    opts = function()
+      return {
+        disable_background = true,
+        styles = {
+          bold = true,
+          italic = true,
+          transparency = false,
+        },
+      }
+    end,
+  },
+  {
     "catppuccin/nvim",
     name = "catppuccin",
     priority = 1000,
