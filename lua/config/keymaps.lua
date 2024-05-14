@@ -15,17 +15,17 @@ keymap.set("n", "dw", 'vb"_d')
 keymap.set("n", "<C-a>", "gg<S-v>G")
 
 -- Harpoon
-keymap.set("n", "<Leader>mq", ":lua require('harpoon.ui').toggle_quick_menu()<CR>")
-keymap.set("n", "<Leader>ma", ":lua require('harpoon.mark').add_file()<CR>")
-keymap.set("n", "<Leader>mn", ":lua require('harpoon.ui').nav_next()<CR>")
-keymap.set("n", "<Leader>mp", ":lua require('harpoon.ui').nav_prev()<CR>")
+keymap.set("n", "<Leader>mq", ":lua require('harpoon.ui').toggle_quick_menu()<CR>", opts)
+keymap.set("n", "<Leader>ma", ":lua require('harpoon.mark').add_file()<CR>", opts)
+keymap.set("n", "<Leader>mn", ":lua require('harpoon.ui').nav_next()<CR>", opts)
+keymap.set("n", "<Leader>mp", ":lua require('harpoon.ui').nav_prev()<CR>", opts)
 -- keymap.set("<leader>rn", vim.lsp.buf.rename, "[R]e[n]ame")
 
-keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
+keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>", opts)
 keymap.set("n", "<Leader>d", [[:OpenDiagnostics<CR>]], opts)
 
-keymap.set("n", "<Leader>k", "<cmd>cnext<CR>zz")
-keymap.set("n", "<Leader>j", "<cmd>cprev<CR>zz")
+keymap.set("n", "<Leader>k", "<cmd>cnext<CR>zz", opts)
+keymap.set("n", "<Leader>j", "<cmd>cprev<CR>zz", opts)
 
 -- Save with root permission (not working for now)
 --vim.api.nvim_create_user_command('W', 'w !sudo tee > /dev/null %', {})
