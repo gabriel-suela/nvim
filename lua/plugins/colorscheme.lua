@@ -38,6 +38,27 @@ return {
     lazy = false,
     priority = 1000,
   },
+  {
+    "Mofiqul/vscode.nvim",
+    lazy = false,
+    priority = 1000,
+    opts = function()
+      return {
+        transparent = true,
+      }
+    end,
+  },
+  {
+    "catppuccin/nvim",
+    name = "catppuccin",
+    event = "VeryLazy",
+    opts = function()
+      return {
+        flavour = "macchiato",
+        transparent_background = true,
+      }
+    end,
+  },
   { "Mofiqul/vscode.nvim", lazy = false, priority = 1000 },
   {
     "sainnhe/gruvbox-material",
