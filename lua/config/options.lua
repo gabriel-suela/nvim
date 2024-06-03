@@ -1,11 +1,11 @@
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
-vim.opt.guicursor = ""
+-- vim.opt.guicursor = ""
 
 vim.opt.nu = true
 vim.opt.relativenumber = true
-
+vim.opt.ignorecase = true
 vim.opt.tabstop = 2
 vim.opt.softtabstop = 2
 vim.opt.shiftwidth = 2
@@ -33,4 +33,11 @@ vim.opt.isfname:append("@-@")
 vim.opt.updatetime = 50
 vim.opt.conceallevel = 2
 
+vim.opt.clipboard = "unnamedplus"
+
 vim.cmd([[au BufNewFile,BufRead *.yaml.gotmpl setf yaml]])
+
+vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
+  virtual_text = true,
+})
+

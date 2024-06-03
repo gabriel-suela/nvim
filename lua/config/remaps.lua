@@ -1,5 +1,5 @@
--- Oil
-vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" })
+-- MiniFiles
+vim.keymap.set("n", "-", "<CMD>:lua MiniFiles.open()<CR>", { desc = "Open parent directory"})
 
 -- Jump between markdown headers
 vim.keymap.set("n", "gj", [[/^##\+ .*<CR>]], { buffer = true, silent = true })
@@ -7,6 +7,18 @@ vim.keymap.set("n", "gk", [[?^##\+ .*<CR>]], { buffer = true, silent = true })
 
 -- Exit insert mode without hitting Esc
 vim.keymap.set("i", "jj", "<Esc>", { desc = "Esc" })
+
+-- Clear search with <esc>
+vim.keymap.set({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>", { desc = "Escape and Clear hlsearch" })
+
+-- save file
+vim.keymap.set({ "i", "x", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>", { desc = "Save File" })
+
+-- lazy
+vim.keymap.set("n", "<leader>ll", "<cmd>Lazy<cr>", { desc = "Lazy" })
+
+-- quit
+vim.keymap.set("n", "<leader>qq", "<cmd>qa<cr>", { desc = "Quit All" })
 
 -- Make Y behave like C or D
 vim.keymap.set("n", "Y", "y$")
@@ -23,6 +35,9 @@ vim.keymap.set("n", "N", "Nzzzv")
 
 -- Paste without overwriting register
 vim.keymap.set("v", "p", '"_dP')
+
+-- Find directory with Telescope
+vim.api.nvim_set_keymap('n', '<leader>fd', '<cmd>Telescope find_files find_command=fd,-t=d<CR>', { noremap = true, silent = true })
 
 -- Copy text to " register
 vim.keymap.set("n", "<leader>y", "\"+y", { desc = "Yank into \" register" })
@@ -110,21 +125,6 @@ vim.keymap.set("t", "<C-t>", "<C-\\><C-n>")
 
 -- Autocommands
 vim.api.nvim_create_augroup("custom_buffer", { clear = true })
-
--- start terminal in insert mode
-vim.api.nvim_create_autocmd("TermOpen", {
-  desc = "Auto enter insert mode when opening a terminal",
-  group = "custom_buffer",
-  pattern = "*",
-  callback = function()
-    -- Wait briefly just in case we immediately switch out of the buffer (e.g. Neotest)
-    vim.defer_fn(function()
-      if vim.api.nvim_buf_get_option(0, 'buftype') == 'terminal' then
-        vim.cmd([[startinsert]])
-      end
-    end, 100)
-  end,
-})
 
 -- highlight yanks
 vim.api.nvim_create_autocmd("TextYankPost", {
