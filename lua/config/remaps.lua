@@ -5,6 +5,9 @@ vim.keymap.set("n", "-", "<CMD>:lua MiniFiles.open()<CR>", { desc = "Open parent
 vim.keymap.set("n", "gj", [[/^##\+ .*<CR>]], { buffer = true, silent = true })
 vim.keymap.set("n", "gk", [[?^##\+ .*<CR>]], { buffer = true, silent = true })
 
+-- Neotree
+vim.keymap.set('n', '<leader>e', '<Cmd>Neotree toggle<CR>')
+
 -- Exit insert mode without hitting Esc
 vim.keymap.set("i", "jj", "<Esc>", { desc = "Esc" })
 
@@ -15,7 +18,7 @@ vim.keymap.set({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>", { desc = "Escape and 
 vim.keymap.set({ "i", "x", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>", { desc = "Save File" })
 
 -- lazy
-vim.keymap.set("n", "<leader>ll", "<cmd>Lazy<cr>", { desc = "Lazy" })
+vim.keymap.set("n", "<leader>L", "<cmd>Lazy<cr>", { desc = "Lazy" })
 
 -- quit
 vim.keymap.set("n", "<leader>qq", "<cmd>qa<cr>", { desc = "Quit All" })
@@ -36,8 +39,11 @@ vim.keymap.set("n", "N", "Nzzzv")
 -- Paste without overwriting register
 vim.keymap.set("v", "p", '"_dP')
 
--- Find directory with Telescope
+-- Telescope
 vim.api.nvim_set_keymap('n', '<leader>fd', '<cmd>Telescope find_files find_command=fd,-t=d<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>ff', '<cmd>Telescope find_files<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>fg', '<cmd>Telescope live_grep<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>fb', '<cmd>Telescope buffers<CR>', { noremap = true, silent = true })
 
 -- Copy text to " register
 vim.keymap.set("n", "<leader>y", "\"+y", { desc = "Yank into \" register" })
