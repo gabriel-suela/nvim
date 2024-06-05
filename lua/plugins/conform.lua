@@ -15,7 +15,7 @@ return {
           graphql = { { "prettierd", "prettier" } },
           markdown = { { "prettierd", "prettier" } },
           bash = { "beautysh" },
-          yaml = { "yamlfix" },
+          yaml = { "prettierd", "prettier" },
           toml = { "taplo" },
           css = { { "prettierd", "prettier" } },
           scss = { { "prettierd", "prettier" } },

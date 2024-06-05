@@ -72,7 +72,7 @@ vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz", { desc = "Forward location 
 vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz", { desc = "Backward location list" })
 
 -- Replace word under cursor across entire buffer
-vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
+vim.keymap.set("n", "<leader>ss", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
   { desc = "Replace word under cursor" })
 
 -- Make current file executable
@@ -91,9 +91,6 @@ end, { desc = "Source current file" })
 
 -- Dismiss Noice Message
 vim.keymap.set("n", "<leader>nd", "<cmd>NoiceDismiss<CR>", {desc = "Dismiss Noice Message"})
-
--- Open Zoxide telescope extension
-vim.keymap.set("n", "<leader>Z", "<cmd>Zi<CR>", { desc = "Open Zoxide" })
 
 -- Resize with arrows
 vim.keymap.set("n", "<C-S-Down>", ":resize +2<CR>", { desc = "Resize Horizontal Split Down" })
@@ -125,9 +122,6 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move Block Up" })
 
 -- Search for highlighted text in buffer
 vim.keymap.set("v", "//", 'y/<C-R>"<CR>', { desc = "Search for highlighted text" })
-
--- Exit terminal mode shortcut
-vim.keymap.set("t", "<C-t>", "<C-\\><C-n>")
 
 -- Autocommands
 vim.api.nvim_create_augroup("custom_buffer", { clear = true })
