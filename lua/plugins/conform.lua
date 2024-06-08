@@ -10,14 +10,14 @@ return {
 				javascript = { { "prettierd", "prettier" } },
 				json = { { "prettierd", "prettier" } },
 				bash = { "beautysh" },
-				yaml = { "prettierd", "prettier" },
+				yaml = { "prettier" },
 				sh = { { "shellcheck" } },
 				python = { "isort", "black" },
 			},
 			format_on_save = {
 				lsp_fallback = true,
 				async = false,
-				timeout_ms = 500,
+				timeout_ms = 1000,
 			},
 		})
 		vim.keymap.set({ "n", "v" }, "<leader>l", function()
