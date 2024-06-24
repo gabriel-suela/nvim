@@ -1,5 +1,5 @@
 -- MiniFiles
-vim.keymap.set("n", "-", "<CMD>:lua MiniFiles.open()<CR>", { desc = "Open parent directory"})
+vim.keymap.set("n", "-", "<CMD>:lua MiniFiles.open()<CR>", { desc = "Open parent directory" })
 
 -- Jump between markdown headers
 vim.keymap.set("n", "gj", [[/^##\+ .*<CR>]], { buffer = true, silent = true })
@@ -29,6 +29,10 @@ vim.keymap.set("n", "Y", "y$")
 -- Select all
 vim.keymap.set("n", "==", "gg<S-v>G")
 
+-- Gitsigns
+vim.keymap.set('n', '<leader>hp', "<cmd>lua require 'gitsigns'.preview_hunk()<cr>")
+vim.keymap.set('n', '<leader>hn', "<cmd>lua require 'gitsigns'.next_hunk()<cr>")
+
 -- Keep window centered when going up/down
 vim.keymap.set("n", "J", "mzJ`z")
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
@@ -40,7 +44,8 @@ vim.keymap.set("n", "N", "Nzzzv")
 vim.keymap.set("v", "p", '"_dP')
 
 -- Telescope
-vim.api.nvim_set_keymap('n', '<leader>fd', '<cmd>Telescope find_files find_command=fd,-t=d<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>fd', '<cmd>Telescope find_files find_command=fd,-t=d<CR>',
+  { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>ff', '<cmd>Telescope find_files<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>fg', '<cmd>Telescope live_grep<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>fb', '<cmd>Telescope buffers<CR>', { noremap = true, silent = true })
@@ -90,7 +95,7 @@ vim.keymap.set("n", "<leader><leader>", function()
 end, { desc = "Source current file" })
 
 -- Dismiss Noice Message
-vim.keymap.set("n", "<leader>nd", "<cmd>NoiceDismiss<CR>", {desc = "Dismiss Noice Message"})
+vim.keymap.set("n", "<leader>nd", "<cmd>NoiceDismiss<CR>", { desc = "Dismiss Noice Message" })
 
 -- Resize with arrows
 vim.keymap.set("n", "<C-S-Down>", ":resize +2<CR>", { desc = "Resize Horizontal Split Down" })
@@ -99,7 +104,8 @@ vim.keymap.set("n", "<C-Left>", ":vertical resize -2<CR>", { desc = "Resize Vert
 vim.keymap.set("n", "<C-Right>", ":vertical resize +2<CR>", { desc = "Resize Vertical Split Up" })
 
 -- Obsidian
-vim.keymap.set("n", "<leader>oc", "<cmd>lua require('obsidian').util.toggle_checkbox()<CR>", { desc = "Obsidian Check Checkbox" })
+vim.keymap.set("n", "<leader>oc", "<cmd>lua require('obsidian').util.toggle_checkbox()<CR>",
+  { desc = "Obsidian Check Checkbox" })
 vim.keymap.set("n", "<leader>ot", "<cmd>ObsidianTemplate<CR>", { desc = "Insert Obsidian Template" })
 vim.keymap.set("n", "<leader>oo", "<cmd>ObsidianOpen<CR>", { desc = "Open in Obsidian App" })
 vim.keymap.set("n", "<leader>ob", "<cmd>ObsidianBacklinks<CR>", { desc = "Show ObsidianBacklinks" })
@@ -113,8 +119,8 @@ vim.keymap.set("n", "<leader>oq", "<cmd>ObsidianQuickSwitch<CR>", { desc = "Quic
 vim.keymap.set("v", "<", "<gv")
 vim.keymap.set("v", ">", ">gv")
 
-vim.keymap.set({"n", "o", "x"}, "<s-h>", "^", { desc = "Jump to beginning of line" })
-vim.keymap.set({"n", "o", "x"}, "<s-l>", "g_", { desc = "Jump to end of line" })
+vim.keymap.set({ "n", "o", "x" }, "<s-h>", "^", { desc = "Jump to beginning of line" })
+vim.keymap.set({ "n", "o", "x" }, "<s-l>", "g_", { desc = "Jump to end of line" })
 
 -- Move block
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move Block Down" })

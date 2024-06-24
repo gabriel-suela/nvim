@@ -37,7 +37,6 @@ vim.opt.clipboard = "unnamedplus"
 
 vim.cmd([[au BufNewFile,BufRead *.yaml.gotmpl setf yaml]])
 
-vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
-  virtual_text = true,
-})
-
+-- vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
+--   virtual_text = true,
+-- })
