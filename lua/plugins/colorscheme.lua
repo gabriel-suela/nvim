@@ -23,6 +23,14 @@ return {
 		priority = 1000,
 	},
 	{
+		"navarasu/onedark.nvim",
+		lazy = false,
+		priority = 1000,
+		opts = {
+			style = "warmer",
+		},
+	},
+	{
 		"catppuccin/nvim",
 		lazy = false,
 		priority = 1000,
