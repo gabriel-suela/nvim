@@ -16,23 +16,6 @@ return {
     config = function() end,
   },
   {
-    'projekt0n/github-nvim-theme',
-    lazy = false,    -- make sure we load this during startup if it is your main colorscheme
-    priority = 1000, -- make sure to load this before all the other start plugins
-    config = function()
-      require('github-theme').setup({
-        -- ...
-      })
-    end,
-  },
-  {
-    "rockyzhang24/arctic.nvim",
-    dependencies = { "rktjmp/lush.nvim" },
-    name = "arctic",
-    branch = "main",
-    priority = 1000,
-  },
-  {
     "navarasu/onedark.nvim",
     lazy = false,
     priority = 1000,
@@ -41,18 +24,10 @@ return {
     },
   },
   {
-    "askfiy/visual_studio_code",
-    priority = 100,
-    config = function()
-      vim.cmd([[colorscheme visual_studio_code]])
-    end,
-  },
-  {
     "catppuccin/nvim",
     lazy = false,
     priority = 1000,
     name = "catppuccin",
-    config = function() end,
     opts = {
       transparent_background = true,
     },
