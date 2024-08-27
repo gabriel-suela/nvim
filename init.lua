@@ -22,4 +22,4 @@ require("lazy").setup("plugins", {
 
 require("config.remaps")
 require("config.options")
-vim.cmd("colorscheme tokyonight")
+vim.cmd("colorscheme catppuccin")
