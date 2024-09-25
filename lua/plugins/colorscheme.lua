@@ -40,7 +40,7 @@ return {
     priority = 1000,
     name = "catppuccin",
     opts = {
-      transparent_background = true,
+      transparent_background = false,
     },
   },
 }
