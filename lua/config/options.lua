@@ -38,18 +38,19 @@ vim.opt.clipboard = "unnamedplus"
 
 vim.cmd([[au BufNewFile,BufRead *.yaml.gotmpl setf yaml]])
 
-vim.g.clipboard = {
-  name = 'win32-clip',
-  copy = {
-    ['+'] = 'clip.exe',
-    ['*'] = 'clip.exe',
-  },
-  paste = {
-    ['+'] = 'powershell.exe Get-Clipboard',
-    ['*'] = 'powershell.exe Get-Clipboard',
-  },
-  cache_enabled = 1,
-}
+-- wsl only
+-- vim.g.clipboard = {
+--   name = 'win32-clip',
+--   copy = {
+--     ['+'] = 'clip.exe',
+--     ['*'] = 'clip.exe',
+--   },
+--   paste = {
+--     ['+'] = 'powershell.exe Get-Clipboard',
+--     ['*'] = 'powershell.exe Get-Clipboard',
+--   },
+--   cache_enabled = 1,
+-- }
 -- vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
 --   virtual_text = true,
 -- })
@@ -60,6 +61,16 @@ vim.api.nvim_create_autocmd({ "FocusGained" }, {
   command = [[call setreg("@", getreg("+"))]],
 })
 
+-- refresh neotree after commit
+vim.api.nvim_create_autocmd({ "BufLeave" }, {
+  pattern = { "*lazygit*" },
+  group = vim.api.nvim_create_augroup("git_refresh_neotree", { clear = true }),
+  callback = function()
+    require("neo-tree.sources.filesystem.commands").refresh(
+      require("neo-tree.sources.manager").get_state("filesystem")
+    )
+  end,
+})
 
 -- sync with system clipboard on focus
 vim.api.nvim_create_autocmd({ "FocusLost" }, {
