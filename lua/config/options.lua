@@ -1,10 +1,11 @@
 vim.g.mapleader = " "
+
 vim.g.maplocalleader = " "
 
 -- vim.opt.guicursor = ""
 
 vim.opt.nu = true
-vim.opt.relativenumber = true
+vim.opt.relativenumber = false
 vim.opt.ignorecase = true
 vim.opt.tabstop = 2
 vim.opt.softtabstop = 2
@@ -38,23 +39,26 @@ vim.opt.clipboard = "unnamedplus"
 
 vim.cmd([[au BufNewFile,BufRead *.yaml.gotmpl setf yaml]])
 
+vim.opt.fileformats = { "unix", "dos" }
+
 -- wsl only
--- vim.g.clipboard = {
---   name = 'win32-clip',
---   copy = {
---     ['+'] = 'clip.exe',
---     ['*'] = 'clip.exe',
---   },
---   paste = {
---     ['+'] = 'powershell.exe Get-Clipboard',
---     ['*'] = 'powershell.exe Get-Clipboard',
---   },
---   cache_enabled = 1,
--- }
+vim.g.clipboard = {
+  name = 'win32-clip',
+  copy = {
+    ['+'] = 'clip.exe',
+    ['*'] = 'clip.exe',
+  },
+  paste = {
+    ['+'] = 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
+    ['*'] = 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
+  },
+  cache_enabled = 1,
+}
+
 -- vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
 --   virtual_text = true,
 -- })
---
+
 -- sync with system clipboard on focus
 vim.api.nvim_create_autocmd({ "FocusGained" }, {
   pattern = { "*" },

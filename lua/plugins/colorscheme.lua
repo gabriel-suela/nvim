@@ -53,7 +53,7 @@ return {
       vim.g.gruvbox_material_disable_italic_comment = 1
       vim.g.gruvbox_material_enable_italic = 0
       vim.g.gruvbox_material_enable_bold = 0
-      vim.g.gruvbox_material_transparent_background = 2
+      vim.g.gruvbox_material_transparent_background = 0
       -- Themes
       vim.g.gruvbox_material_foreground = "mix"
       vim.g.gruvbox_material_background = "hard"
