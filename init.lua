@@ -20,6 +20,13 @@ require("lazy").setup("plugins", {
   },
 })
 
+if vim.g.vscode then
+  -- VSCode Neovim
+  require "user.vscode_keymaps"
+else
+  -- Ordinary Neovim
+end
+
 require("config.remaps")
 require("config.options")
-vim.cmd("colorscheme gruvbox-material")
+vim.cmd("colorscheme zenbones")
