@@ -29,4 +29,4 @@ end
 
 require("config.remaps")
 require("config.options")
-vim.cmd("colorscheme zenbones")
+vim.cmd("colorscheme catppuccin-mocha")
