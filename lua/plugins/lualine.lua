@@ -7,9 +7,8 @@ return {
         icons_enabled = true,
         disabled_filetypes = {
           statusline = {
-            "aerial",
+            "dashboard",
             "neo-tree",
-            "NvimTree",
           },
         },
       }
