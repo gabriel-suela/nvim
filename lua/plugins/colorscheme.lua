@@ -24,6 +24,11 @@ return {
     config = function() end,
   },
   {
+    "dgox16/oldworld.nvim",
+    lazy = false,
+    priority = 1000,
+  },
+  {
     "neanias/everforest-nvim",
     version = false,
     lazy = false,
