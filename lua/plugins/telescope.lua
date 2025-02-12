@@ -9,6 +9,12 @@ return {
     require("telescope").setup({
       defaults = {
         file_ignore_patterns = { "node_modules", ".git" }, -- Ignoring common directories
+      },
+      pickers = {
+        find_files = {
+          theme = "dropdown",
+          previewer = true,
+        }
       }
     })
     require("telescope").load_extension("project")
