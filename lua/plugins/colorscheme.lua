@@ -13,7 +13,23 @@ return {
   {
     "Mofiqul/vscode.nvim",
     priority = 100,
-    config = function() end,
+    opts = {
+      transparent = true,
+      disable_nvimtree_bg = true
+    }
+  },
+  {
+    "rose-pine/neovim",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      require("rose-pine").setup({
+        styles = {
+          transparency = true,
+          italic = false
+        }
+      })
+    end
   },
   {
     "dgox16/oldworld.nvim",
