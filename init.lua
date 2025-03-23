@@ -29,4 +29,4 @@ end
 
 require("config.remaps")
 require("config.options")
-vim.cmd("colorscheme tokyonight-night")
+vim.cmd("colorscheme onedark")
