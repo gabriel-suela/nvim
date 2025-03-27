@@ -14,7 +14,7 @@ return {
     "Mofiqul/vscode.nvim",
     priority = 100,
     opts = {
-      transparent = true,
+      transparent = false,
       disable_nvimtree_bg = true
     }
   },

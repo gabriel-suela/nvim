@@ -6,7 +6,7 @@ vim.keymap.set("n", "gj", [[/^##\+ .*<CR>]], { buffer = true, silent = true })
 vim.keymap.set("n", "gk", [[?^##\+ .*<CR>]], { buffer = true, silent = true })
 
 -- Neotree
-vim.keymap.set('n', '<leader>e', '<Cmd>Neotree toggle<CR>')
+-- vim.keymap.set('n', '<leader>e', '<Cmd>Neotree toggle<CR>')
 
 -- Exit insert mode without hitting Esc
 vim.keymap.set("i", "jj", "<Esc>", { desc = "Esc" })
