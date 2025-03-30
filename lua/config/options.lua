@@ -56,35 +56,35 @@ vim.opt.fileformats = { "unix", "dos" }
 --   cache_enabled = 0,
 -- }
 
-vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
-  virtual_text = true,
+vim.diagnostic.config({
+	virtual_text = true,
 })
 
 -- sync with system clipboard on focus
 vim.api.nvim_create_autocmd({ "FocusGained" }, {
-  pattern = { "*" },
-  command = [[call setreg("@", getreg("+"))]],
+	pattern = { "*" },
+	command = [[call setreg("@", getreg("+"))]],
 })
 
 -- refresh neotree after commit
 vim.api.nvim_create_autocmd({ "BufLeave" }, {
-  pattern = { "*lazygit*" },
-  group = vim.api.nvim_create_augroup("git_refresh_neotree", { clear = true }),
-  callback = function()
-    require("neo-tree.sources.filesystem.commands").refresh(
-      require("neo-tree.sources.manager").get_state("filesystem")
-    )
-  end,
+	pattern = { "*lazygit*" },
+	group = vim.api.nvim_create_augroup("git_refresh_neotree", { clear = true }),
+	callback = function()
+		require("neo-tree.sources.filesystem.commands").refresh(
+			require("neo-tree.sources.manager").get_state("filesystem")
+		)
+	end,
 })
 
 -- sync with system clipboard on focus
 vim.api.nvim_create_autocmd({ "FocusGained" }, {
-  pattern = { "*" },
-  command = [[call setreg("@", getreg("+"))]],
+	pattern = { "*" },
+	command = [[call setreg("@", getreg("+"))]],
 })
 
 -- sync with system clipboard on focus
 vim.api.nvim_create_autocmd({ "FocusLost" }, {
-  pattern = { "*" },
-  command = [[call setreg("+", getreg("@"))]],
+	pattern = { "*" },
+	command = [[call setreg("+", getreg("@"))]],
 })

@@ -6,7 +6,7 @@ vim.keymap.set("n", "gj", [[/^##\+ .*<CR>]], { buffer = true, silent = true })
 vim.keymap.set("n", "gk", [[?^##\+ .*<CR>]], { buffer = true, silent = true })
 
 -- Neotree
--- vim.keymap.set('n', '<leader>e', '<Cmd>Neotree toggle<CR>')
+vim.keymap.set("n", "<leader>e", "<Cmd>Neotree toggle<CR>")
 
 -- Exit insert mode without hitting Esc
 vim.keymap.set("i", "jj", "<Esc>", { desc = "Esc" })
@@ -30,8 +30,8 @@ vim.keymap.set("n", "Y", "y$")
 vim.keymap.set("n", "==", "gg<S-v>G")
 
 -- Gitsigns
-vim.keymap.set('n', '<leader>hp', "<cmd>lua require 'gitsigns'.preview_hunk()<cr>")
-vim.keymap.set('n', '<leader>hn', "<cmd>lua require 'gitsigns'.next_hunk()<cr>")
+vim.keymap.set("n", "<leader>hp", "<cmd>lua require 'gitsigns'.preview_hunk()<cr>")
+vim.keymap.set("n", "<leader>hn", "<cmd>lua require 'gitsigns'.next_hunk()<cr>")
 
 -- Keep window centered when going up/down
 vim.keymap.set("n", "J", "mzJ`z")
@@ -44,20 +44,24 @@ vim.keymap.set("n", "N", "Nzzzv")
 vim.keymap.set("v", "p", '"_dP')
 
 -- Telescope
-vim.api.nvim_set_keymap('n', '<leader>fd', '<cmd>Telescope find_files find_command=fd,-t=d<CR>',
-  { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<leader>ff', '<cmd>Telescope find_files<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<leader>fg', '<cmd>Telescope live_grep<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<leader>fb', '<cmd>Telescope buffers<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap(
+	"n",
+	"<leader>fd",
+	"<cmd>Telescope find_files find_command=fd,-t=d<CR>",
+	{ noremap = true, silent = true }
+)
+vim.api.nvim_set_keymap("n", "<leader>ff", "<cmd>Telescope find_files<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<leader>fg", "<cmd>Telescope live_grep<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<leader>fb", "<cmd>Telescope buffers<CR>", { noremap = true, silent = true })
 
 -- Copy text to " register
-vim.keymap.set("n", "<leader>y", "\"+y", { desc = "Yank into \" register" })
-vim.keymap.set("v", "<leader>y", "\"+y", { desc = "Yank into \" register" })
-vim.keymap.set("n", "<leader>Y", "\"+Y", { desc = "Yank into \" register" })
+vim.keymap.set("n", "<leader>y", '"+y', { desc = 'Yank into " register' })
+vim.keymap.set("v", "<leader>y", '"+y', { desc = 'Yank into " register' })
+vim.keymap.set("n", "<leader>Y", '"+Y', { desc = 'Yank into " register' })
 
 -- Delete text to " register
-vim.keymap.set("n", "<leader>d", "\"_d", { desc = "Delete into \" register" })
-vim.keymap.set("v", "<leader>d", "\"_d", { desc = "Delete into \" register" })
+vim.keymap.set("n", "<leader>d", '"_d', { desc = 'Delete into " register' })
+vim.keymap.set("v", "<leader>d", '"_d', { desc = 'Delete into " register' })
 
 -- Get out Q
 vim.keymap.set("n", "Q", "<nop>")
@@ -77,8 +81,12 @@ vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz", { desc = "Forward location 
 vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz", { desc = "Backward location list" })
 
 -- Replace word under cursor across entire buffer
-vim.keymap.set("n", "<leader>ss", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
-  { desc = "Replace word under cursor" })
+vim.keymap.set(
+	"n",
+	"<leader>ss",
+	[[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]],
+	{ desc = "Replace word under cursor" }
+)
 
 -- Make current file executable
 vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true, desc = "Make current file executable" })
@@ -87,11 +95,11 @@ vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true, desc =
 vim.keymap.set("n", "<leader>vpp", "<cmd>e ~/.config/nvim/lua/plugins.lua<CR>", { desc = "Jump to configuration file" })
 
 -- Copy file paths
-vim.keymap.set("n", "<leader>cf", "<cmd>let @+ = expand(\"%\")<CR>", { desc = "Copy File Name" })
-vim.keymap.set("n", "<leader>cp", "<cmd>let @+ = expand(\"%:p\")<CR>", { desc = "Copy File Path" })
+vim.keymap.set("n", "<leader>cf", '<cmd>let @+ = expand("%")<CR>', { desc = "Copy File Name" })
+vim.keymap.set("n", "<leader>cp", '<cmd>let @+ = expand("%:p")<CR>', { desc = "Copy File Path" })
 
 vim.keymap.set("n", "<leader><leader>", function()
-  vim.cmd("so")
+	vim.cmd("so")
 end, { desc = "Source current file" })
 
 -- Dismiss Noice Message
@@ -104,8 +112,12 @@ vim.keymap.set("n", "<C-Left>", ":vertical resize -2<CR>", { desc = "Resize Vert
 vim.keymap.set("n", "<C-Right>", ":vertical resize +2<CR>", { desc = "Resize Vertical Split Up" })
 
 -- Obsidian
-vim.keymap.set("n", "<leader>oc", "<cmd>lua require('obsidian').util.toggle_checkbox()<CR>",
-  { desc = "Obsidian Check Checkbox" })
+vim.keymap.set(
+	"n",
+	"<leader>oc",
+	"<cmd>lua require('obsidian').util.toggle_checkbox()<CR>",
+	{ desc = "Obsidian Check Checkbox" }
+)
 vim.keymap.set("n", "<leader>ot", "<cmd>ObsidianTemplate<CR>", { desc = "Insert Obsidian Template" })
 vim.keymap.set("n", "<leader>oo", "<cmd>ObsidianOpen<CR>", { desc = "Open in Obsidian App" })
 vim.keymap.set("n", "<leader>ob", "<cmd>ObsidianBacklinks<CR>", { desc = "Show ObsidianBacklinks" })
@@ -134,7 +146,9 @@ vim.api.nvim_create_augroup("custom_buffer", { clear = true })
 
 -- highlight yanks
 vim.api.nvim_create_autocmd("TextYankPost", {
-  group    = "custom_buffer",
-  pattern  = "*",
-  callback = function() vim.highlight.on_yank { timeout = 200 } end
+	group = "custom_buffer",
+	pattern = "*",
+	callback = function()
+		vim.highlight.on_yank({ timeout = 200 })
+	end,
 })
