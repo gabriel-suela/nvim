@@ -57,14 +57,25 @@ vim.opt.fileformats = { "unix", "dos" }
 -- }
 
 vim.diagnostic.config({
-	virtual_text = true,
+	virtual_text = true, -- Exibe mensagens inline
+	signs = {
+		text = {
+			[vim.diagnostic.severity.ERROR] = "",
+			[vim.diagnostic.severity.WARN] = "",
+			[vim.diagnostic.severity.INFO] = "",
+			[vim.diagnostic.severity.HINT] = "",
+		},
+	},
+	underline = true,
+	update_in_insert = false,
+	severity_sort = true,
 })
 
 -- sync with system clipboard on focus
-vim.api.nvim_create_autocmd({ "FocusGained" }, {
-	pattern = { "*" },
-	command = [[call setreg("@", getreg("+"))]],
-})
+-- vim.api.nvim_create_autocmd({ "FocusGained" }, {
+-- 	pattern = { "*" },
+-- 	command = [[call setreg("@", getreg("+"))]],
+-- })
 
 -- refresh neotree after commit
 vim.api.nvim_create_autocmd({ "BufLeave" }, {
@@ -77,14 +88,14 @@ vim.api.nvim_create_autocmd({ "BufLeave" }, {
 	end,
 })
 
--- sync with system clipboard on focus
-vim.api.nvim_create_autocmd({ "FocusGained" }, {
-	pattern = { "*" },
-	command = [[call setreg("@", getreg("+"))]],
-})
-
--- sync with system clipboard on focus
-vim.api.nvim_create_autocmd({ "FocusLost" }, {
-	pattern = { "*" },
-	command = [[call setreg("+", getreg("@"))]],
-})
+-- -- sync with system clipboard on focus
+-- vim.api.nvim_create_autocmd({ "FocusGained" }, {
+-- 	pattern = { "*" },
+-- 	command = [[call setreg("@", getreg("+"))]],
+-- })
+--
+-- -- sync with system clipboard on focus
+-- vim.api.nvim_create_autocmd({ "FocusLost" }, {
+-- 	pattern = { "*" },
+-- 	command = [[call setreg("+", getreg("@"))]],
+-- })

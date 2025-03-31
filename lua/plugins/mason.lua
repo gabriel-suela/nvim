@@ -28,6 +28,7 @@ return {
 				"shellcheck",
 				"black",
 				"isort",
+				"yaml-language-server",
 			},
 		})
 	end,
