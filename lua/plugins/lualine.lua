@@ -7,9 +7,6 @@ return {
 	config = function()
 		local lualine = require("lualine")
 		local lazy_status = require("lazy.status")
-		local function maximize_status()
-			return vim.t.maximized and "Maximized   " or ""
-		end
 		local function split(str, delimiter)
 			local result = {}
 			for match in (str .. delimiter):gmatch("(.-)" .. delimiter) do

@@ -29,6 +29,7 @@ return {
 				"black",
 				"isort",
 				"yaml-language-server",
+				"bash-language-server",
 			},
 		})
 	end,
