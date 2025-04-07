@@ -42,49 +42,17 @@ vim.cmd([[au BufNewFile,BufRead *.yaml.gotmpl setf yaml]])
 
 vim.opt.fileformats = { "unix", "dos" }
 
--- wsl only
--- vim.g.clipboard = {
---   name = 'win32-clip',
---   copy = {
---     ['+'] = 'clip.exe',
---     ['*'] = 'clip.exe',
---   },
---   paste = {
---     ['+'] = 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
---     ['*'] = 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
---   },
---   cache_enabled = 0,
--- }
-
 vim.diagnostic.config({
-	virtual_text = true, -- Exibe mensagens inline
-	signs = {
-		text = {
-			[vim.diagnostic.severity.ERROR] = "",
-			[vim.diagnostic.severity.WARN] = "",
-			[vim.diagnostic.severity.INFO] = "",
-			[vim.diagnostic.severity.HINT] = "",
-		},
-	},
-	underline = true,
-	update_in_insert = false,
-	severity_sort = true,
+  virtual_text = true, -- Exibe mensagens inline
+  signs = {
+    text = {
+      [vim.diagnostic.severity.ERROR] = "",
+      [vim.diagnostic.severity.WARN] = "",
+      [vim.diagnostic.severity.INFO] = "",
+      [vim.diagnostic.severity.HINT] = "",
+    },
+  },
+  underline = true,
+  update_in_insert = false,
+  severity_sort = true,
 })
-
--- sync with system clipboard on focus
--- vim.api.nvim_create_autocmd({ "FocusGained" }, {
--- 	pattern = { "*" },
--- 	command = [[call setreg("@", getreg("+"))]],
--- })
-
--- -- sync with system clipboard on focus
--- vim.api.nvim_create_autocmd({ "FocusGained" }, {
--- 	pattern = { "*" },
--- 	command = [[call setreg("@", getreg("+"))]],
--- })
---
--- -- sync with system clipboard on focus
--- vim.api.nvim_create_autocmd({ "FocusLost" }, {
--- 	pattern = { "*" },
--- 	command = [[call setreg("+", getreg("@"))]],
--- })
