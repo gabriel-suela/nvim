@@ -42,9 +42,6 @@ vim.cmd([[au BufNewFile,BufRead *.yaml.gotmpl setf yaml]])
 
 vim.opt.fileformats = { "unix", "dos" }
 
-
-
-
 if vim.fn.has('wsl') == 1 then
   vim.api.nvim_create_autocmd('TextYankPost', {
 
