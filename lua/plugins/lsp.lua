@@ -11,7 +11,7 @@ return {
         "mason-org/mason-lspconfig.nvim",
         config = function()
           require("mason-lspconfig").setup {
-            ensure_installed = { "lua_ls", "pyright" },
+            ensure_installed = { "lua_ls", "pyright", "yamlls", "dockerls", "bashls", "gopls" },
             automatic_enable = true, -- new feature in v2
           }
         end,
