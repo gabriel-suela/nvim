@@ -29,5 +29,21 @@ return {
         },
       },
     },
+    config = function()
+      local lspconfig = require("lspconfig")
+      lspconfig.yamlls.setup({
+        settings = {
+          yaml = {
+            validate = true,
+            hover = true,
+            completion = true,
+            format = { enable = true },
+            schemas = {
+              kubernetes = { "*.yaml", "*.yaml.gotmpl" },   -- your gotmpl files
+            },
+          },
+        },
+      })
+    end,
   },
 }
