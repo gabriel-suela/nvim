@@ -34,12 +34,18 @@ return {
       lspconfig.yamlls.setup({
         settings = {
           yaml = {
-            validate = true,
+            validate = false,
             hover = true,
             completion = true,
             format = { enable = true },
             schemas = {
-              kubernetes = { "*.yaml", "*.yaml.gotmpl" },   -- your gotmpl files
+              -- kubernetes = { "*.yaml", "*.yaml.gotmpl" }, -- your gotmpl files
+              ["https://json.schemastore.org/github-workflow.json"] = {
+                "/.github/workflows/*.{yml,yaml}",
+                ".github/workflows/*.{yml,yaml}",
+                "**/.github/workflows/*.{yml,yaml}", },
+              ["https://json.schemastore.org/docker-compose.json"] = "docker-compose*.{yml,yaml}",
+              ["https://json.schemastore.org/kubernetes.json"] = "*k8s*.{yml,*.yaml,*.yaml.gotmpl}",
             },
           },
         },
