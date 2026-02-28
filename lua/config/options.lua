@@ -1,57 +1,34 @@
+-- lua/config/options.lua
+local env = require("config.env")
+vim.g.NVIM_VDI = env.is_vdi()
+
 vim.g.mapleader = " "
--- vim.opt.guicursor = ""
-vim.opt.nu = true
-vim.opt.cursorline = true
-vim.opt.relativenumber = true
-vim.opt.ignorecase = true
-vim.opt.tabstop = 2
-vim.opt.expandtab = true
-vim.opt.fillchars = { eob = " " }
-vim.opt.smartindent = true
-vim.opt.smartcase = true
-vim.opt.wrap = false
-vim.opt.swapfile = false
-vim.opt.backup = false
-vim.opt.hlsearch = false
-vim.opt.incsearch = true
-vim.opt.termguicolors = true
-vim.opt.scrolloff = 8
-vim.opt.signcolumn = "yes"
-vim.opt.updatetime = 50
-vim.opt.conceallevel = 2
-vim.opt.clipboard = "unnamedplus"
-vim.opt.winborder = "rounded"
+vim.g.maplocalleader = " "
 
-vim.cmd([[au BufNewFile,BufRead *.yaml.gotmpl setf yaml]])
+local o = vim.opt
+o.number = true
+o.relativenumber = true
+o.wrap = false
+o.termguicolors = true
+o.signcolumn = "yes"
+o.updatetime = 200
+o.timeoutlen = 400
+o.clipboard = "unnamedplus"
 
-vim.opt.fileformats = { "unix", "dos" }
+o.expandtab = true
+o.shiftwidth = 2
+o.tabstop = 2
+o.smartindent = true
 
-if vim.fn.has('wsl') == 1 then
-        vim.api.nvim_create_autocmd('TextYankPost', {
+o.ignorecase = true
+o.smartcase = true
 
-                group = vim.api.nvim_create_augroup('Yank', { clear = true }),
+o.splitbelow = true
+o.splitright = true
 
-                callback = function()
-                        vim.fn.system('clip.exe', vim.fn.getreg('"'))
-                end,
-
-        })
+-- VDI-friendly: menos “barulho”, menos custo
+if vim.g.NVIM_VDI then
+  o.undofile = false
+  o.swapfile = false
+  o.backup = false
 end
-
-
-vim.diagnostic.config({
-        virtual_text = true, -- Exibe mensagens inline
-        signs = {
-                text = {
-                        [vim.diagnostic.severity.ERROR] = "",
-                        [vim.diagnostic.severity.WARN] = "",
-                        [vim.diagnostic.severity.INFO] = "",
-                        [vim.diagnostic.severity.HINT] = "",
-                },
-        },
-        underline = true,
-        update_in_insert = false,
-        severity_sort = true,
-})
-
-vim.cmd(":hi statusline guibg=NONE")

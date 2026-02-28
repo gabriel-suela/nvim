@@ -1,21 +1,14 @@
+-- lua/plugins/gitsigns.lua
 return {
   "lewis6991/gitsigns.nvim",
-  opts = {
-    signs = {
-      add = { text = "┃" },
-      change = { text = "┃" },
-      delete = { text = "_" },
-      topdelete = { text = "‾" },
-      changedelete = { text = "~" },
-      untracked = { text = "┆" },
-    },
-    current_line_blame = true,
-    current_line_blame_opts = {
-      virt_text = true,
-      virt_text_pos = "eol", -- 'eol' | 'overlay' | 'right_align'
-      delay = 100,
-      ignore_whitespace = false,
-      virt_text_priority = 100,
-    },
-  },
+  event = { "BufReadPre", "BufNewFile" },
+  config = function()
+    require("gitsigns").setup({
+      current_line_blame = true,
+      signcolumn = true,
+    })
+    vim.keymap.set("n", "]h", require("gitsigns").next_hunk, { desc = "Next hunk" })
+    vim.keymap.set("n", "[h", require("gitsigns").prev_hunk, { desc = "Prev hunk" })
+    vim.keymap.set("n", "<leader>hp", require("gitsigns").preview_hunk, { desc = "Preview hunk" })
+  end,
 }

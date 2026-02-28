@@ -1,23 +1,16 @@
+-- lua/plugins/telescope.lua
 return {
   "nvim-telescope/telescope.nvim",
-  dependencies = {
-    "nvim-lua/plenary.nvim",
-    "kyazdani42/nvim-web-devicons", -- Changed to a popular fork with active maintenance
-    "nvim-telescope/telescope-project.nvim",
-  },
+  cmd = "Telescope",
+  dependencies = { "nvim-lua/plenary.nvim" },
   config = function()
-    require("telescope").setup({
+    local telescope = require("telescope")
+    telescope.setup({
       defaults = {
-        file_ignore_patterns = { "node_modules", ".git" }, -- Ignoring common directories
+        -- VDI: evita ficar “travando” com preview pesado
+        preview = { timeout = vim.g.NVIM_VDI and 100 or 300 },
+        file_ignore_patterns = { "%.git/", "node_modules/", "vendor/" },
       },
-      pickers = {
-        find_files = {
-          theme = "dropdown",
-          previewer = true,
-        }
-      }
     })
-    require("telescope").load_extension("project")
-    require("telescope").load_extension("git_worktree")
   end,
 }
