@@ -12,7 +12,7 @@ return {
       return ok and stat and stat.size and stat.size > max
     end
 
-    require("nvim-treesitter.configs").setup({
+    require("nvim-treesitter.config").setup({
       -- No RHEL8 eu recomendo você instalar parsers manualmente só do que usar.
       -- Você pode deixar vazio e rodar :TSInstall lua yaml bash json terraform go python
       ensure_installed = {},
